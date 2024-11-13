@@ -17,3 +17,9 @@ def increment():
 def reset():
     cnt.reset()
     return redirect("/")
+    
+@app.route("/set_value", methods=["POST"])
+def set_value():
+    new_value = int(request.form["value"])
+    cnt.value = new_value
+    return redirect("/")
